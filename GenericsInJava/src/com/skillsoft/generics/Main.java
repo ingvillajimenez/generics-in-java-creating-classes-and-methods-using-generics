@@ -5,31 +5,42 @@ import java.util.Calendar;
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println("**** A repository for each type of data stored");
+        System.out.println("**** Accessing values with the right type");
 
-        IntegerRepository fifteen = new IntegerRepository(15);
-        System.out.println(fifteen);
+        Repository fifteen = new Repository(15);
 
-        DoubleRepository tenPointOne = new DoubleRepository(10.1);
-        System.out.println(tenPointOne);
+        Integer integerVal = (Integer) fifteen.getValue();
+        System.out.println("Accessing integer: " + integerVal);
 
-        StringRepository helloGenerics = new StringRepository("Hello generics!");
-        System.out.println(helloGenerics);
+        Repository tenPointOne = new Repository(10.1);
 
-        DateRepository today = new DateRepository(Calendar.getInstance().getTime());
-        System.out.println(today);
+        Double doubleVal = (Double) tenPointOne.getValue();
+        System.out.println("Accessing double: " + doubleVal);
 
-//        IntegerRepository fifteen = new IntegerRepository(15);
+        Repository helloGenerics = new Repository("Hello generics!");
+
+        String stringVal = (String) helloGenerics.getValue();
+        System.out.println("Accessing string: " + stringVal);
+
+        Repository today = new Repository(Calendar.getInstance().getTime());
+
+        String dateVal = (String) today.getValue();
+        System.out.println("Accessing date (wrong cast!): " + dateVal); // java.lang.ClassCastException
+                                                                        // class java.util.Date cannot be cast to class java.lang.String
+
+//        System.out.println("***** A single repository holding objects");
+//
+//        Repository fifteen = new Repository(15);
 //        System.out.println(fifteen);
 //
-//        IntegerRepository oneHundredOne = new IntegerRepository(101);
-//        System.out.println(oneHundredOne);
+//        Repository tenPointOne = new Repository(10.1);
+//        System.out.println(tenPointOne);
 //
-//        IntegerRepository tenPointOne = new IntegerRepository(10.1); // java: incompatible types: double cannot be converted to java.lang.Integer
+//        Repository helloGenerics = new Repository("Hello generics!");
+//        System.out.println(helloGenerics);
 //
-//        IntegerRepository helloGenerics = new IntegerRepository("Hello generics!"); // java: incompatible types: java.lang.String cannot be converted to java.lang.Integer
-//
-//        IntegerRepository today = new IntegerRepository(Calendar.getInstance().getTime()); // java: incompatible types: java.util.Date cannot be converted to java.lang.Integer
+//        Repository today = new Repository(Calendar.getInstance().getTime());
+//        System.out.println(today);
 
     }
 }

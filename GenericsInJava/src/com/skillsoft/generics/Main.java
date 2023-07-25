@@ -6,45 +6,45 @@ import java.util.Date;
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println("**** Generic repositories");
+        System.out.println("**** Wrong casting leads to runtime errors");
 
-        Repository<Integer> fifteen = new Repository<>();
-        fifteen.value = "fifteen"; // java: incompatible types: java.lang.String cannot be converted to java.lang.Integer
+        Repository<Car> carRepository = new Repository<Car>();
+        Car car = carRepository.getValue(); // java.lang.ClassCastException
+        // class java.lang.String cannot be cast to class com.skillsoft.generics.Car
 
-        Repository<Double> tenPointOne = new Repository<>();
-        tenPointOne.value = 10.1f; // java: incompatible types: float cannot be converted to java.lang.Double
+//        System.out.println("**** Generic class with custom type");
+//
+//        Car honda = new Car("Honda", "Civic", 21000);
+//
+//        Repository<Car> carRepository = new Repository<Car>(honda);
+//        System.out.println(carRepository);
 
-        Repository<String> helloGenerics = new Repository<>();
-        helloGenerics.value = 100; // java: incompatible types: int cannot be converted to java.lang.String
+//        System.out.println("**** String representations of generic classes");
+//
+//        Repository<Integer> integerRepository = new Repository<>(15);
+//        System.out.println(integerRepository);
+//
+//        Repository<Double> doubleRepository = new Repository<>(10.2);
+//        System.out.println(doubleRepository);
+//
+//        Repository<String> stringRepository = new Repository<>("Hello generics!");
+//        System.out.println(stringRepository);
+//
+//        Repository<Date> dateRepository = new Repository<>(Calendar.getInstance().getTime());
+//        System.out.println(dateRepository);
+//
+//        System.out.println("\n**** Update and access values using generic methods");
+//
+//        integerRepository.setValue(25);
+//        doubleRepository.setValue(100.89);
+//        stringRepository.setValue("Setting a generic value using a method");
+//        dateRepository.setValue(Calendar.getInstance().getTime());
+//
+//        System.out.println(integerRepository.getValue());
+//        System.out.println(doubleRepository.getValue());
+//        System.out.println(stringRepository.getValue());
+//        System.out.println(dateRepository.getValue());
 
-        Repository<Date> today = new Repository<>();
-        today.value = "3rd March, 2021"; // java: incompatible types: java.lang.String cannot be converted to java.util.Date
-
-//        System.out.println("**** Generic repositories");
-//
-//        Repository<Integer> fifteen = new Repository<Integer>();
-//        fifteen.value = 15;
-//
-//        System.out.println("\nInteger repository: " + fifteen.value);
-//        System.out.println("Integer repository holds an integer class type: " + fifteen.value.getClass());
-//
-//        Repository<Double> tenPointOne = new Repository<Double>();
-//        tenPointOne.value = 10.1;
-//
-//        System.out.println("\nDouble repository: " + tenPointOne.value);
-//        System.out.println("Double repository holds an double class type: " + tenPointOne.value.getClass());
-//
-//        Repository<String> helloGenerics = new Repository<String>();
-//        helloGenerics.value = "Hello generics";
-//
-//        System.out.println("\nString repository: " + helloGenerics.value);
-//        System.out.println("String repository holds an string class type: " + helloGenerics.value.getClass());
-//
-//        Repository<Date> today = new Repository<Date>();
-//        today.value = Calendar.getInstance().getTime();
-//
-//        System.out.println("\nDate repository: " + today.value);
-//        System.out.println("Date repository holds an date class type: " + today.value.getClass());
     }
 }
 

@@ -1,19 +1,9 @@
 package com.skillsoft.generics;
 
-public class Repository {
+public class Repository<T> {
 
-    private Object value;
-
-    public Repository(Object value) {
-        this.value = value;
-    }
-
-    public Object getValue() {
-        return value;
-    }
-
-    @Override
-    public String toString() {
-        return String.format("Repository contains: %s, of type: %s", value, value.getClass());
-    }
+    public T value;
 }
+
+// Type Parameter or Type Variable
+// A placeholder for the different types of data that the Repository can work with

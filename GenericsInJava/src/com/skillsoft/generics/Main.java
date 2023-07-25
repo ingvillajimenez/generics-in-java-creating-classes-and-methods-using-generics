@@ -6,44 +6,35 @@ import java.util.Date;
 public class Main {
     public static void main(String[] args) {
 
-        System.out.println("**** Wrong casting leads to runtime errors");
+        Repository<String> stringRepository = new Repository<>("Welcome To Java");
+        Repository rawStringRepository = stringRepository;
 
-        Repository<Car> carRepository = new Repository<Car>();
-        Car car = carRepository.getValue(); // java.lang.ClassCastException
-        // class java.lang.String cannot be cast to class com.skillsoft.generics.Car
+        System.out.println(rawStringRepository);
 
-//        System.out.println("**** Generic class with custom type");
-//
-//        Car honda = new Car("Honda", "Civic", 21000);
-//
-//        Repository<Car> carRepository = new Repository<Car>(honda);
-//        System.out.println(carRepository);
+        Object stringObject = rawStringRepository.getValue();
 
-//        System.out.println("**** String representations of generic classes");
+        rawStringRepository.setValue("Hi Java"); // Unchecked call to 'setValue(T)' as a member of raw type 'com.skillsoft.generics.Repository'
+
+        System.out.println(rawStringRepository);
+
+        rawStringRepository.setValue(10);
+
+        System.out.println("Contains the wrong type! " + rawStringRepository);
+
+//        Repository rawStringRepository = new Repository("Hello Java"); // Raw use of parameterized class 'Repository'
+//        System.out.println(rawStringRepository);
 //
-//        Repository<Integer> integerRepository = new Repository<>(15);
-//        System.out.println(integerRepository);
+//        Object stringObject = rawStringRepository.getValue();
 //
-//        Repository<Double> doubleRepository = new Repository<>(10.2);
-//        System.out.println(doubleRepository);
+//        Repository rawFloatRepository = new Repository(12.5f); // Raw use of parameterized class 'Repository'
+//        System.out.println(rawFloatRepository);
 //
-//        Repository<String> stringRepository = new Repository<>("Hello generics!");
-//        System.out.println(stringRepository);
+//        Object floatObject = rawFloatRepository.getValue();
 //
-//        Repository<Date> dateRepository = new Repository<>(Calendar.getInstance().getTime());
-//        System.out.println(dateRepository);
+//        Repository rawBooleanRepository = new Repository(false); // Raw use of parameterized class 'Repository'
+//        System.out.println(rawBooleanRepository);
 //
-//        System.out.println("\n**** Update and access values using generic methods");
-//
-//        integerRepository.setValue(25);
-//        doubleRepository.setValue(100.89);
-//        stringRepository.setValue("Setting a generic value using a method");
-//        dateRepository.setValue(Calendar.getInstance().getTime());
-//
-//        System.out.println(integerRepository.getValue());
-//        System.out.println(doubleRepository.getValue());
-//        System.out.println(stringRepository.getValue());
-//        System.out.println(dateRepository.getValue());
+//        Object booleanObject = rawBooleanRepository.getValue();
 
     }
 }
@@ -56,3 +47,6 @@ public class Main {
 // Eliminate casts while accessing data
 // Allow extensive code reuse making code maintenance easier
 // Allow programmers to use generic algorithms
+
+// Backward Compatibility
+// Generic classes can be instantiated using raw objects

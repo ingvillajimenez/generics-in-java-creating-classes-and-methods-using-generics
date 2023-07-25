@@ -1,40 +1,43 @@
 package com.skillsoft.generics;
 
-import java.util.Calendar;
-import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
 
-        Repository<String> stringRepository = new Repository<>("Welcome To Java");
-        Repository rawStringRepository = stringRepository;
+        Map<Integer, String> studentsMap = new HashMap<>();
 
-        System.out.println(rawStringRepository);
+        Integer[] studentIds = new Integer[] {22, 33, 44, 55};
+        String[] studentNames = new String[] {"Doris", "Donald", "Elise", "Eric"};
 
-        Object stringObject = rawStringRepository.getValue();
+        MapHelper mapHelper = new MapHelper();
 
-        rawStringRepository.setValue("Hi Java"); // Unchecked call to 'setValue(T)' as a member of raw type 'com.skillsoft.generics.Repository'
+        mapHelper.addEntries(studentsMap, studentIds, studentNames);
 
-        System.out.println(rawStringRepository);
+        mapHelper.printEntries(studentsMap);
 
-        rawStringRepository.setValue(10);
-
-        System.out.println("Contains the wrong type! " + rawStringRepository);
-
-//        Repository rawStringRepository = new Repository("Hello Java"); // Raw use of parameterized class 'Repository'
-//        System.out.println(rawStringRepository);
+//        Map<Integer, Double> studentsMap = new HashMap<>();
 //
-//        Object stringObject = rawStringRepository.getValue();
+//        Integer[] studentIds = new Integer[] {22, 33, 44, 55};
+//        Double[] studentScores = new Double[] {3.2, 2.8, 3.3, 3.8};
 //
-//        Repository rawFloatRepository = new Repository(12.5f); // Raw use of parameterized class 'Repository'
-//        System.out.println(rawFloatRepository);
+//        MapHelper mapHelper = new MapHelper();
 //
-//        Object floatObject = rawFloatRepository.getValue();
+//        mapHelper.addEntries(studentsMap, studentIds, studentScores); // java: incompatible types: java.util.Map<java.lang.Integer,java.lang.Double> cannot be converted to java.util.Map<java.lang.Integer,java.lang.String>
 //
-//        Repository rawBooleanRepository = new Repository(false); // Raw use of parameterized class 'Repository'
-//        System.out.println(rawBooleanRepository);
+//        System.out.println(studentsMap);
+
+//    Map<Integer, String> studentsMap = new HashMap<>();
 //
-//        Object booleanObject = rawBooleanRepository.getValue();
+//    Integer[] studentIds = new Integer[] {22, 33, 44, 55};
+//    String[] studentNames = new String[] {"Doris", "Donald", "Elise", "Eric"};
+//
+//    MapHelper mapHelper = new MapHelper();
+//
+//    mapHelper.addEntries(studentsMap, studentIds, studentNames);
+//
+//    System.out.println(studentsMap);
 
     }
 }

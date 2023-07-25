@@ -11,22 +11,19 @@ public class Main {
         Integer[] studentIds = new Integer[] {22, 33, 44, 55};
         String[] studentNames = new String[] {"Doris", "Donald", "Elise", "Eric"};
 
-        MapHelper<Integer, String> mapHelper1 = new MapHelper<>();
+//        MapHelper.addEntries(studentNamesMap, studentIds, studentNames);
+        MapHelper.<Integer, String>addEntries(studentNamesMap, studentIds, studentNames); // Explicit type arguments can be inferred
 
-        mapHelper1.addEntries(studentNamesMap, studentIds, studentNames);
-
-        mapHelper1.printEntries(studentNamesMap);
-
+//        MapHelper.printEntries(studentNamesMap);
+        MapHelper.<Integer, String>printEntries(studentNamesMap); // Explicit type arguments can be inferred
 
         Map<Integer, Double> studentScoresMap = new HashMap<>();
 
         Double[] studentScores = new Double[] {3.2, 2.8, 3.3, 3.8};
 
-        MapHelper<Integer, Double> mapHelper2 = new MapHelper<>();
+        MapHelper.<Integer, Double>addEntries(studentScoresMap, studentIds, studentScores); // Explicit type arguments can be inferred
 
-        mapHelper2.addEntries(studentScoresMap, studentIds, studentScores);
-
-        mapHelper2.printEntries(studentScoresMap);
+        MapHelper.<Integer, Double>printEntries(studentScoresMap); // Explicit type arguments can be inferred
     }
 }
 
